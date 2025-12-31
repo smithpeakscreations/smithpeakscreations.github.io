@@ -7,10 +7,62 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     <style>
-        body { max-width: 800px; margin: auto; padding: 2rem; line-height: 1.6; }
-        h1, h2, h3 { color: #222; }
-        header { margin-bottom: 3rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
-        footer { margin-top: 5rem; font-size: 0.9rem; color: #666; }
+        /* Define colors for Light Mode (Default) */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --heading-color: #222222;
+            --border-color: #eeeeee;
+            --link-color: #0066cc;
+            --footer-color: #666666;
+        }
+
+        /* Define colors for Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #e0e0e0;
+                --heading-color: #ffffff;
+                --border-color: #333333;
+                --link-color: #8ab4f8;
+                --footer-color: #aaaaaa;
+            }
+        }
+
+        body { 
+            max-width: 800px; 
+            margin: auto; 
+            padding: 2rem; 
+            line-height: 1.6; 
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1, h2, h3, h4 { 
+            color: var(--heading-color); 
+        }
+
+        header { 
+            margin-bottom: 3rem; 
+            border-bottom: 1px solid var(--border-color); 
+            padding-bottom: 1rem; 
+        }
+
+        a {
+            color: var(--link-color);
+        }
+
+        footer { 
+            margin-top: 5rem; 
+            font-size: 0.9rem; 
+            color: var(--footer-color); 
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--border-color);
+        }
     </style>
 </head>
 <body>
@@ -124,7 +176,7 @@
 
 <h2>Changes to this Privacy Policy</h2>
 <p>We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</p>
-<p>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the &quot;Last updated&quot; date at the top of this Privacy Policy.</p>
+<p>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the &quot;Last updated&quot; date at the top of this Policy.</p>
 <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
 
 <h2>Contact Us</h2>
