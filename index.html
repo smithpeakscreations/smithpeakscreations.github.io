@@ -2,137 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Smith Peaks Creations | Mobile App Development</title>
+    <meta name="description" content="Indie iOS apps built in Utah. Privacy policies for ScoreKeep Pro, The Sport Pulse, and Home Centered.">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+    <meta property="og:title" content="Smith Peaks Creations">
+    <meta property="og:description" content="Indie iOS apps built in Utah. Privacy policies for ScoreKeep Pro, The Sport Pulse, and Home Centered.">
+    <meta property="og:url" content="https://smithpeakscreations.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://smithpeakscreations.com/assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <style>
-        :root {
-            --card-bg: var(--nc-bg-2);
-            --card-border: var(--nc-bg-3);
-            --muted-text: var(--nc-tx-2);
-            --accent-red: #d32f2f;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --card-bg: var(--nc-bg-3);
-                --card-border: var(--nc-bg-4);
-                --muted-text: var(--nc-tx-3);
-            }
-        }
-
-        body {
-            max-width: 900px;
-            margin: auto;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        header {
-            margin-bottom: 4rem;
-        }
-
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: bold;
-            letter-spacing: -1px;
-        }
-
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            text-align: left;
-        }
-
-        .app-card {
-            border: 1px solid var(--card-border);
-            padding: 1.5rem;
-            border-radius: 8px;
-            background: var(--card-bg);
-        }
-
-        .app-card h3 {
-            margin-top: 0;
-            color: var(--accent-red);
-        }
-
-        .legal-links {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-        }
-
-        .coming-soon {
-            border-style: dashed;
-            background: transparent;
-        }
-
-        .coming-soon p {
-            color: var(--muted-text);
-        }
-
-        section {
-            margin-top: 4rem;
-        }
-
-        footer {
-            margin-top: 5rem;
-            font-size: 0.8rem;
-            color: var(--muted-text);
-        }
-    </style>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f7f5f2'/%3E%3Cpolygon points='0,26 8,13 16,26' fill='%237d9db8'/%3E%3Cpolygon points='16,26 24,15 32,26' fill='%237d9db8'/%3E%3Cpolygon points='7,26 16,5 25,26' fill='%233f6b8f'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-<header>
-    <div class="logo-text">Smith Peaks Creations</div>
-    <p>Crafting high-quality mobile experiences in the heart of Utah.</p>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+    <div class="wrap">
+        <a class="lockup" href="/">
+            <svg class="peak-mark" viewBox="0 0 62 22" role="img" aria-label="Smith Peaks Creations">
+                <polygon class="peak-outer" points="0,22 8,8 16,22"/>
+                <polygon class="peak-center" points="19,22 31,0 43,22"/>
+                <polygon class="peak-outer" points="46,22 54,10 62,22"/>
+            </svg>
+            Smith Peaks Creations
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+            <a href="#apps">Apps</a>
+            <a href="#apps">Privacy</a>
+            <a class="is-accent" href="#contact">Contact</a>
+        </nav>
+    </div>
 </header>
 
-<main>
-    <h2>Our Apps</h2>
+<main id="main">
 
-    <div class="app-grid">
-        <div class="app-card">
-            <h3>ScoreKeep Pro</h3>
-            <p>The ultimate companion for tracking scores and stats for your favorite games.</p>
-            <div class="legal-links">
-                <a href="/privacy/scorekeeppro.html">Privacy Policy</a>
-            </div>
-        </div>
-
-        <div class="app-card">
-            <h3>The Sport Pulse</h3>
-            <p>Stay updated with the latest in the world of sports. Data-driven insights at your fingertips.</p>
-            <div class="legal-links">
-                <a href="/privacy/thesportpulse.html">Privacy Policy</a>
-            </div>
-        </div>
-
-        <div class="app-card">
-            <h3>Home Centered</h3>
-            <p>Stay on top of home maintenance. Track what needs doing, what it costs, and what you've already handled.</p>
-            <div class="legal-links">
-                <a href="/privacy/homecentered.html">Privacy Policy</a>
+    <div class="hero">
+        <div class="ridge ridge-back"></div>
+        <div class="ridge ridge-mid"></div>
+        <div class="ridge ridge-front"></div>
+        <div class="wrap hero-inner">
+            <h1>Smith Peaks Creations</h1>
+            <p class="hero-tagline">Crafting high-quality mobile experiences in the heart of Utah.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#apps">See the apps</a>
+                <a class="btn btn-outline" href="#contact">Get in touch</a>
             </div>
         </div>
     </div>
 
-    <section>
-        <h2>Contact Us</h2>
-        <p>Questions or support needs? Reach out to us at:</p>
-        <a href="mailto:smithpeakscreations@gmail.com">
-            smithpeakscreations@gmail.com
-        </a>
+    <section class="wrap apps" id="apps" aria-labelledby="apps-heading">
+        <div class="section-head">
+            <h2 id="apps-heading">Our apps</h2>
+        </div>
+
+        <div class="app-grid">
+
+            <article class="app-card">
+                <div class="card-top">
+                    <div class="app-icon" aria-hidden="true">app<br>icon</div>
+                </div>
+                <h3>ScoreKeep Pro</h3>
+                <p class="app-desc">The ultimate companion for tracking scores and stats for your favorite games.</p>
+                <div class="card-rule"></div>
+                <a class="card-link" href="privacy/scorekeeppro.html">Privacy Policy &rarr;</a>
+            </article>
+
+            <article class="app-card">
+                <div class="card-top">
+                    <div class="app-icon" aria-hidden="true">app<br>icon</div>
+                </div>
+                <h3>The Sport Pulse</h3>
+                <p class="app-desc">Stay updated with the latest in the world of sports. Data-driven insights at your fingertips.</p>
+                <div class="card-rule"></div>
+                <a class="card-link" href="privacy/thesportpulse.html">Privacy Policy &rarr;</a>
+            </article>
+
+            <article class="app-card">
+                <div class="card-top">
+                    <div class="app-icon" aria-hidden="true">app<br>icon</div>
+                </div>
+                <h3>Home Centered</h3>
+                <p class="app-desc">Stay on top of home maintenance. Track what needs doing, what it costs, and what you&rsquo;ve already handled.</p>
+                <div class="card-rule"></div>
+                <a class="card-link" href="privacy/homecentered.html">Privacy Policy &rarr;</a>
+            </article>
+
+            <article class="app-card-soon">
+                <svg class="soon-peak" viewBox="0 0 22 17" aria-hidden="true">
+                    <polygon points="0,17 11,0 22,17"/>
+                </svg>
+                <h3>Something new</h3>
+                <p>In the workshop. Say hi and ask what&rsquo;s next.</p>
+            </article>
+
+        </div>
+
+        <section class="contact-band" id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Questions or support needs?</h2>
+            <a class="btn btn-primary btn-lg" href="mailto:smithpeakscreations@gmail.com">smithpeakscreations@gmail.com</a>
+        </section>
     </section>
+
 </main>
 
-<footer>
-    <hr>
-    <p>&copy; 2025 Smith Peaks Creations. All rights reserved.</p>
+<footer class="site-footer">
+    <div class="wrap">
+        <span>&copy; 2026 Smith Peaks Creations. All rights reserved.</span>
+        <span class="footer-links">
+            <a href="#apps">Privacy</a> &middot;
+            <a href="mailto:smithpeakscreations@gmail.com">Support</a>
+        </span>
+    </div>
 </footer>
 
 </body>
