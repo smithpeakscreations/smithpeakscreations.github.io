@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+  Source for assets/og.png (the Open Graph link-preview card).
+
+  This file is not linked from the site; it exists so og.png can be regenerated.
+  From the repo root:
+
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless --disable-gpu --hide-scrollbars \
+      --window-size=1200,630 \
+      --screenshot=assets/og.png \
+      "file://$PWD/assets/og.html"
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smith Peaks Creations — OG card</title>
+<style>
+    html, body { margin: 0; padding: 0; }
+
+    .card {
+        width: 1200px;
+        height: 630px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(175deg, #dce6ee 0%, #eef1f2 45%, #f7f5f2 100%);
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #1c1a17;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+        padding-bottom: 96px;
+        box-sizing: border-box;
+    }
+
+    .ridge {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 152px;
+        background: #3f6b8f;
+        clip-path: polygon(0 100%, 0 66%, 12% 40%, 24% 72%, 38% 34%, 50% 70%, 62% 44%, 76% 76%, 88% 48%, 100% 72%, 100% 100%);
+    }
+
+    .mark { display: block; height: 72px; width: auto; position: relative; }
+
+    h1 {
+        position: relative;
+        margin: 0;
+        font-size: 88px;
+        font-weight: 700;
+        letter-spacing: -3.6px;
+        line-height: 1;
+    }
+
+    p {
+        position: relative;
+        margin: 0;
+        font-size: 27px;
+        color: #4a463f;
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="ridge"></div>
+    <svg class="mark" viewBox="0 0 62 22" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,22 8,8 16,22" fill="#7d9db8"/>
+        <polygon points="19,22 31,0 43,22" fill="#3f6b8f"/>
+        <polygon points="46,22 54,10 62,22" fill="#7d9db8"/>
+    </svg>
+    <h1>Smith Peaks Creations</h1>
+    <p>Indie iOS apps built in Utah.</p>
+</div>
+
+</body>
+</html>

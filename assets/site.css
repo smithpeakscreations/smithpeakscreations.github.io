@@ -1,0 +1,927 @@
+/* ==========================================================================
+   Smith Peaks Creations — site.css
+   One stylesheet for index.html, 404.html, and privacy/*.html.
+   No build step, no external requests, no JavaScript.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+
+:root {
+    /* Core palette */
+    --bg: #f7f5f2;
+    --surface: #ffffff;
+    --ink: #1c1a17;
+    --prose-ink: #3a3630;
+    --muted: #5c574f;
+    --faint: #a09889;
+    --line: #e2ddd5;
+    --line-soft: #eceae5;
+
+    --accent: #3f6b8f;
+    --accent-soft: #eef2f5;
+    --accent-2: #9a6448;
+    --accent-2-soft: #f7f0ec;
+
+    /* Supporting */
+    --accent-hover: #35597a;
+    --link-hover: #2c4f6c;
+    --callout-bg: #f2f5f8;
+    --band-border: #dfe7ee;
+    --btn-outline-border: #b9cddc;
+    --btn-outline-border-hover: #9fc0dc;
+    --btn-outline-bg: rgba(255, 255, 255, .7);
+    --focus: #9fc0dc;
+    --card-border-hover: #cfdae4;
+    --card-shadow: 0 10px 24px rgba(63, 107, 143, .18);
+    --nav-bg: rgba(247, 245, 242, .9);
+    --nav-border: #e7eaed;
+    --dashed: #cdc6bb;
+    --dashed-ink: #8a8378;
+    --icon-stripe-a: #e8e4dd;
+    --icon-stripe-b: #f3f0eb;
+
+    /* Brand mark */
+    --peak-center: #3f6b8f;
+    --peak-outer: #7d9db8;
+
+    /* Hero + ridgelines */
+    --hero-grad: linear-gradient(175deg, #dce6ee 0%, #eef1f2 45%, #f7f5f2 100%);
+    --hero-tagline: #4a463f;
+    --ridge-back: rgba(63, 107, 143, .13);
+    --ridge-mid: rgba(63, 107, 143, .26);
+    --ridge-front: #3f6b8f;
+    --err-grad: linear-gradient(175deg, #eef2f5, #f7f5f2);
+    --err-ridge: rgba(63, 107, 143, .18);
+
+    /* Type */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    /* Layout */
+    --page-max: 1060px;
+    --gutter: 48px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #14161a;
+        --surface: #1c1f24;
+        --ink: #e8e6e2;
+        --prose-ink: #c9c6c0;
+        --muted: #c9c6c0;
+        --faint: #7c8590;
+        --line: #2a2f36;
+        --line-soft: #2a2f36;
+
+        --accent: #8fb4d6;
+        --accent-soft: #1e2831;
+        --accent-2: #d0a68c;
+        --accent-2-soft: #2a2118;
+
+        --accent-hover: #a9c8e3;
+        --link-hover: #b6d0e6;
+        --callout-bg: #1c1f24;
+        --band-border: #2a2f36;
+        --btn-outline-border: #3a505f;
+        --btn-outline-border-hover: #557285;
+        --btn-outline-bg: rgba(255, 255, 255, .04);
+        --card-border-hover: #3a444f;
+        --card-shadow: 0 10px 24px rgba(0, 0, 0, .45);
+        --nav-bg: rgba(20, 22, 26, .9);
+        --nav-border: #2a2f36;
+        --dashed: #3a3f47;
+        --dashed-ink: #7c8590;
+        --icon-stripe-a: #24282e;
+        --icon-stripe-b: #1c1f24;
+
+        --peak-center: #f7f5f2;
+        --peak-outer: #8fb4d6;
+
+        --hero-grad: linear-gradient(175deg, #1b222a 0%, #171a1f 45%, #14161a 100%);
+        --hero-tagline: #c9c6c0;
+        --ridge-back: rgba(143, 180, 214, .10);
+        --ridge-mid: rgba(143, 180, 214, .18);
+        --ridge-front: #3f6b8f;
+        --err-grad: linear-gradient(175deg, #1b222a, #14161a);
+        --err-ridge: rgba(143, 180, 214, .18);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset / base
+   (new.css was removed; this replaces only what the pages actually use)
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--ink);
+    font-weight: 700;
+    margin: 0;
+    text-wrap: balance;
+}
+
+p,
+ul,
+ol {
+    margin: 0 0 1.1em;
+}
+
+ul,
+ol {
+    padding-left: 1.35em;
+}
+
+li {
+    margin-bottom: .4em;
+}
+
+li > p {
+    margin-bottom: .5em;
+}
+
+strong {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 2rem 0;
+}
+
+code {
+    font-family: var(--font-mono);
+    font-size: .9em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+main {
+    flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   3. Focus + skip link
+   -------------------------------------------------------------------------- */
+
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.prose a:focus-visible,
+.inline-link:focus-visible {
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 13px;
+    border-radius: 7px;
+}
+
+.skip-link:focus {
+    left: 12px;
+    top: 12px;
+    text-decoration: none;
+    color: var(--bg);
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout
+   -------------------------------------------------------------------------- */
+
+.wrap {
+    width: 100%;
+    max-width: calc(var(--page-max) + (var(--gutter) * 2));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+
+/* Privacy pages run a narrower measure and a tighter gutter */
+.page-doc {
+    --page-max: 800px;
+    --gutter: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Brand mark + lockup
+   -------------------------------------------------------------------------- */
+
+.peak-mark {
+    display: block;
+    height: 15px;
+    width: auto;
+    flex: none;
+}
+
+.peak-mark .peak-center {
+    fill: var(--peak-center);
+}
+
+.peak-mark .peak-outer {
+    fill: var(--peak-outer);
+}
+
+.lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -.3px;
+}
+
+.lockup:hover {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.page-doc .lockup {
+    font-size: 13.5px;
+    letter-spacing: -.2px;
+}
+
+.page-doc .peak-mark {
+    height: 13px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Site header / nav
+   -------------------------------------------------------------------------- */
+
+.site-header {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+}
+
+.site-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 14px;
+}
+
+.page-doc .site-header {
+    background: var(--bg);
+    border-bottom-color: var(--line);
+}
+
+.page-doc .site-header .wrap {
+    padding-block: 13px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.nav-links a {
+    color: var(--muted);
+}
+
+.nav-links a:hover {
+    color: var(--link-hover);
+}
+
+.nav-links a.is-accent {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.back-link {
+    font-size: 12.5px;
+    color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   7. Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+    position: relative;
+    min-height: 330px;
+    background: var(--hero-grad);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ridge {
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.ridge-back {
+    left: -40px;
+    right: -40px;
+    height: 158px;
+    background: var(--ridge-back);
+    clip-path: polygon(0 100%, 0 70%, 10% 44%, 20% 66%, 32% 26%, 44% 60%, 56% 34%, 68% 62%, 80% 30%, 92% 58%, 100% 40%, 100% 100%);
+    animation: drift 40s linear infinite alternate;
+}
+
+.ridge-mid {
+    left: -20px;
+    right: -20px;
+    height: 110px;
+    background: var(--ridge-mid);
+    clip-path: polygon(0 100%, 0 58%, 14% 22%, 28% 60%, 40% 34%, 54% 68%, 66% 30%, 78% 62%, 90% 38%, 100% 66%, 100% 100%);
+}
+
+.ridge-front {
+    left: 0;
+    right: 0;
+    height: 66px;
+    background: var(--ridge-front);
+    clip-path: polygon(0 100%, 0 66%, 12% 40%, 24% 72%, 38% 34%, 50% 70%, 62% 44%, 76% 76%, 88% 48%, 100% 72%, 100% 100%);
+}
+
+@keyframes drift {
+    to {
+        transform: translateX(-40px);
+    }
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 13px;
+    padding: 48px 0 58px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    letter-spacing: -2.2px;
+    line-height: 1;
+    margin: 0;
+}
+
+.hero-tagline {
+    font-size: 16px;
+    color: var(--hero-tagline);
+    margin: 0;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   8. Buttons
+   -------------------------------------------------------------------------- */
+
+.btn {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 17px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    line-height: 1.2;
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    .btn-primary {
+        color: #14161a;
+    }
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    .btn-primary:hover {
+        color: #14161a;
+    }
+}
+
+.btn-outline {
+    color: var(--accent);
+    border-color: var(--btn-outline-border);
+    background: var(--btn-outline-bg);
+}
+
+.btn-outline:hover {
+    color: var(--accent);
+    background: var(--surface);
+    border-color: var(--btn-outline-border-hover);
+}
+
+.btn-lg {
+    font-size: 13.5px;
+    padding: 12px 19px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Apps section + grid
+   -------------------------------------------------------------------------- */
+
+.apps {
+    padding-block: 38px 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.section-head h2 {
+    font-size: 22px;
+    letter-spacing: -.4px;
+}
+
+.section-note {
+    font: 400 11px var(--font-mono);
+    color: var(--faint);
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+/* --- App card --- */
+
+.app-card {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.app-card:hover,
+.app-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow);
+    border-color: var(--card-border-hover);
+}
+
+.app-card:hover .card-link,
+.app-card:focus-within .card-link {
+    font-weight: 600;
+}
+
+.card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.app-icon {
+    width: 48px;
+    height: 48px;
+    flex: none;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: repeating-linear-gradient(45deg, var(--icon-stripe-a) 0 5px, var(--icon-stripe-b) 5px 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font: 400 7px/1.25 var(--font-mono);
+    color: var(--faint);
+}
+
+/* App-identity pill. Used on the privacy pages to name which app the policy
+   covers; the two variants are colour only, not a category taxonomy. */
+.tag {
+    font: 600 9.5px var(--font-mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.tag-accent {
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.tag-accent-2 {
+    color: var(--accent-2);
+    background: var(--accent-2-soft);
+}
+
+.app-card h3 {
+    font-size: 17px;
+    letter-spacing: -.2px;
+    line-height: 1.3;
+}
+
+.app-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--muted);
+    flex: 1;
+    margin: 0;
+}
+
+.card-rule {
+    height: 1px;
+    background: var(--line-soft);
+}
+
+.card-link {
+    font-size: 12.5px;
+    color: var(--accent);
+}
+
+/* Whole card is clickable, but there is still exactly one real link,
+   so the markup stays valid and readable with CSS disabled. */
+.card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+}
+
+.card-link:hover {
+    text-decoration: none;
+}
+
+/* --- "Something new" placeholder card --- */
+
+.app-card-soon {
+    border: 1.5px dashed var(--dashed);
+    border-radius: 12px;
+    padding: 20px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.soon-peak {
+    display: block;
+    width: 22px;
+    height: 17px;
+    fill: var(--dashed);
+}
+
+.app-card-soon h3 {
+    font-size: 17px;
+    color: var(--dashed-ink);
+}
+
+.app-card-soon p {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--faint);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. Contact band
+   -------------------------------------------------------------------------- */
+
+.contact-band {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 24px 28px;
+    border-radius: 12px;
+    background: var(--callout-bg);
+    border: 1px solid var(--band-border);
+}
+
+.contact-band h2 {
+    font-size: 18px;
+    letter-spacing: 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.site-footer .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding-block: 18px;
+}
+
+.page-doc .site-footer .wrap {
+    padding-block: 16px;
+}
+
+.footer-links {
+    color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   12. Privacy pages
+   -------------------------------------------------------------------------- */
+
+.doc-head {
+    padding-top: 34px;
+}
+
+.doc-head h1 {
+    font-size: 30px;
+    letter-spacing: -.9px;
+    line-height: 1.15;
+}
+
+.doc-meta {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.doc-meta .tag {
+    font-size: 10px;
+    padding: 4px 9px;
+}
+
+.doc-date {
+    font-size: 12.5px;
+    color: var(--muted);
+}
+
+.summary {
+    margin-top: 22px;
+    border-left: 2px solid var(--accent);
+    background: var(--callout-bg);
+    padding: 16px 18px;
+    border-radius: 0 8px 8px 0;
+}
+
+.summary-label {
+    font: 600 10.5px var(--font-mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 7px;
+}
+
+.summary p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--prose-ink);
+    margin: 0;
+}
+
+.summary p + p {
+    margin-top: .8em;
+}
+
+.prose {
+    max-width: 68ch;
+    padding-block: 8px 38px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--prose-ink);
+}
+
+.prose h2 {
+    font-size: 1.25rem;
+    letter-spacing: -.3px;
+    line-height: 1.3;
+    margin: 2.1em 0 .5em;
+}
+
+.prose h3 {
+    font-size: 1.0625rem;
+    letter-spacing: -.2px;
+    line-height: 1.3;
+    margin: 1.7em 0 .45em;
+}
+
+.prose h4 {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 1.4em 0 .35em;
+}
+
+.prose > *:first-child {
+    margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   13. 404
+   -------------------------------------------------------------------------- */
+
+.err {
+    position: relative;
+    overflow: hidden;
+    background: var(--err-grad);
+    text-align: center;
+    padding: 88px 22px 104px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.err-ridge {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    background: var(--err-ridge);
+    clip-path: polygon(0 100%, 0 62%, 16% 26%, 32% 62%, 48% 22%, 64% 58%, 80% 30%, 100% 60%, 100% 100%);
+    pointer-events: none;
+}
+
+.err-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.err-eyebrow {
+    font: 600 11px var(--font-mono);
+    letter-spacing: .16em;
+    color: var(--accent);
+    margin: 0;
+}
+
+.err h1 {
+    font-size: 26px;
+    letter-spacing: -.5px;
+    margin-top: 7px;
+}
+
+.err p {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin: 5px 0 0;
+}
+
+.err .btn {
+    margin-top: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   14. Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+    :root {
+        --gutter: 20px;
+    }
+
+    .page-doc {
+        --gutter: 20px;
+    }
+
+    .hero {
+        min-height: 0;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        letter-spacing: -1.2px;
+    }
+
+    .hero-inner {
+        padding: 40px 0 52px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        font-size: 12.5px;
+    }
+
+    .site-header .wrap {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .doc-head h1 {
+        font-size: 26px;
+        letter-spacing: -.6px;
+    }
+
+    .contact-band {
+        padding: 20px;
+    }
+
+    .err {
+        padding: 56px 20px 72px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   15. Reduced motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .app-card:hover,
+    .app-card:focus-within {
+        transform: none;
+    }
+}
