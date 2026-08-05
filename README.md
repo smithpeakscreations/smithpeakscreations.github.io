@@ -23,12 +23,15 @@ CNAME                   Custom domain
 opened straight off disk (`file://`). Hand-editing one file is the whole workflow — no
 npm, no bundler, no framework.
 
-**These three URLs are immutable.** They are submitted inside App Store Connect
-listings. Do not rename, move, or extension-strip these files:
+**These four URLs are immutable.** They are submitted inside App Store Connect
+listings, and `365strong.html` is additionally hard-coded in the 365 Strong app under
+Profile &rarr; About &rarr; Privacy Policy. Do not rename, move, or extension-strip these
+files:
 
 - `/privacy/scorekeeppro.html`
 - `/privacy/thesportpulse.html`
 - `/privacy/homecentered.html`
+- `/privacy/365strong.html`
 
 **No external requests.** No CDN, no webfont, no analytics. A privacy policy page
 should not phone anyone. Imagery is inline SVG, CSS, a data URI, or a file committed
