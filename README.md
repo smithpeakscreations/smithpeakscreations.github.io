@@ -13,6 +13,7 @@ privacy/*.html          One policy per app
 assets/site.css         The entire design system (tokens, components, dark mode)
 assets/og.html          Source for the link-preview card
 assets/og.png           Rendered link-preview card (1200x630)
+assets/icons/*.png      App icons for the cards (144x144, shown at 48px)
 CNAME                   Custom domain
 ```
 
@@ -30,8 +31,9 @@ listings. Do not rename, move, or extension-strip these files:
 - `/privacy/homecentered.html`
 
 **No external requests.** No CDN, no webfont, no analytics. A privacy policy page
-should not phone anyone. Imagery is inline SVG, CSS, or a data URI. If you add
-something that makes a network request, you have broken the point of the site.
+should not phone anyone. Imagery is inline SVG, CSS, a data URI, or a file committed
+under `assets/`. If you add something that makes an *outbound* request, you have broken
+the point of the site.
 
 **Zero JavaScript.** Dark mode is `prefers-color-scheme` only; a manual toggle would
 require JS.
@@ -51,6 +53,33 @@ readable with CSS disabled.
   --window-size=1200,630 \
   --screenshot=assets/og.png \
   "file://$PWD/assets/og.html"
+```
+
+## Adding or updating an app icon
+
+Card icons live in `assets/icons/` at 144×144 (3× the 48px display size) and are named
+after the policy file for that app. Source them from the app's
+`Assets.xcassets/AppIcon.appiconset/` 1024×1024 master:
+
+```bash
+sips -s format png -Z 144 /path/to/AppIcon.appiconset/1024.png --out assets/icons/<app>.png
+```
+
+App Store icons are opaque squares — iOS applies its own rounding, and `.app-icon`
+rounds to 12px here. If a master has an alpha channel, flatten it first or it will show
+the card through and vanish in dark mode:
+
+```bash
+sips -g hasAlpha /path/to/icon.png
+```
+
+`assets/icons/scorekeeppro.png` was flattened onto white this way, since its master is a
+transparent monogram.
+
+For an app with no icon yet, use the striped placeholder instead of an `<img>`:
+
+```html
+<div class="app-icon app-icon-placeholder" aria-hidden="true">app<br>icon</div>
 ```
 
 ## Previewing locally

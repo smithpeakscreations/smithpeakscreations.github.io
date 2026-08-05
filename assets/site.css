@@ -562,6 +562,13 @@ main {
     flex: none;
     border-radius: 12px;
     border: 1px solid var(--line);
+    background: var(--surface);
+    object-fit: cover;
+}
+
+/* Striped stand-in for an app that has no icon yet. Unused while all three
+   apps have real icons; kept for the next one. */
+.app-icon-placeholder {
     background: repeating-linear-gradient(45deg, var(--icon-stripe-a) 0 5px, var(--icon-stripe-b) 5px 10px);
     display: flex;
     align-items: center;
