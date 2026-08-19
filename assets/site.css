@@ -810,7 +810,184 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   13. 404
+   13. App pages
+   -------------------------------------------------------------------------- */
+
+.page-app {
+    --page-max: 900px;
+}
+
+/* --- Hero --- */
+
+.app-hero {
+    background: var(--hero-grad);
+    border-bottom: 1px solid var(--line-soft);
+    padding-block: 40px 44px;
+}
+
+.app-hero-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.app-hero-icon {
+    width: 96px;
+    height: 96px;
+    flex: none;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    object-fit: cover;
+}
+
+/* Same recipe as .err-eyebrow and .summary-label. */
+.app-eyebrow {
+    font: 600 11px var(--font-mono);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2px 0 8px;
+}
+
+.app-hero h1 {
+    font-size: 34px;
+    letter-spacing: -1px;
+    line-height: 1.12;
+}
+
+.app-tagline {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--hero-tagline);
+    margin: 9px 0 0;
+    max-width: 46ch;
+}
+
+.app-meta {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 11px 0 0;
+}
+
+.app-actions {
+    margin-top: 18px;
+}
+
+/* Apple's badge artwork, used unmodified. The white variant is swapped in for
+   dark mode by a <picture> media source, which needs no JavaScript. */
+.badge-appstore {
+    display: block;
+    height: 50px;
+    width: auto;
+}
+
+/* --- Body sections --- */
+
+.app-body {
+    padding-block: 34px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.app-section h2 {
+    font-size: 22px;
+    letter-spacing: -.4px;
+    margin-bottom: 16px;
+}
+
+/* Same intrinsic-responsive idiom as .app-grid, one size down. */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px 24px;
+}
+
+.feature h3 {
+    font-size: 15px;
+    letter-spacing: -.1px;
+    line-height: 1.35;
+    margin-bottom: 5px;
+}
+
+.feature p {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* --- Screenshot strip --- */
+
+/* Scrolls horizontally rather than wrapping, so a phone screenshot is never
+   scaled below legibility. */
+.shot-gallery {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.shot {
+    flex: none;
+    width: 230px;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    scroll-snap-align: start;
+}
+
+/* --- FAQ --- */
+
+/* Answers stay visible rather than collapsing into <details>: App Review reads
+   this page, and it has to survive CSS being switched off. */
+.faq-list {
+    max-width: 70ch;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.faq-q {
+    font-size: 15px;
+    letter-spacing: -.1px;
+    line-height: 1.35;
+    margin-bottom: 5px;
+}
+
+.faq-a {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--prose-ink);
+    margin: 0;
+}
+
+/* --- Support --- */
+
+/* Reuses .contact-band from the homepage; only the stacking differs. */
+.app-body .contact-band {
+    margin-top: 0;
+}
+
+.support-note {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 6px 0 0;
+    max-width: 46ch;
+}
+
+.app-legal {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   14. 404
    -------------------------------------------------------------------------- */
 
 .err {
@@ -865,7 +1042,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   14. Responsive
+   15. Responsive
    -------------------------------------------------------------------------- */
 
 @media (max-width: 640px) {
@@ -905,6 +1082,38 @@ main {
         letter-spacing: -.6px;
     }
 
+    .app-hero {
+        padding-block: 30px 34px;
+    }
+
+    .app-hero-inner {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .app-hero-icon {
+        width: 76px;
+        height: 76px;
+        border-radius: 16px;
+    }
+
+    .app-hero h1 {
+        font-size: 27px;
+        letter-spacing: -.7px;
+    }
+
+    .app-tagline {
+        font-size: 15px;
+    }
+
+    .app-body {
+        gap: 28px;
+    }
+
+    .app-section h2 {
+        font-size: 19px;
+    }
+
     .contact-band {
         padding: 20px;
     }
@@ -915,7 +1124,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   15. Reduced motion
+   16. Reduced motion
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
