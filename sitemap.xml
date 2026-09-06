@@ -40,4 +40,8 @@
         <loc>https://smithpeakscreations.com/privacy/365strong.html</loc>
         <priority>0.4</priority>
     </url>
+    <url>
+        <loc>https://smithpeakscreations.com/terms/365strong.html</loc>
+        <priority>0.4</priority>
+    </url>
 </urlset>
