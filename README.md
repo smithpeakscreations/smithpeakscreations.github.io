@@ -145,7 +145,7 @@ Six steps, in this order. Every slug is the same string throughout.
    `privacy/thesportpulse.html`, if the app uses third-party SDKs) and rewrite the body.
    If the app sells anything, also `terms/<slug>.html` — copy `terms/thesportpulse.html`.
 3. `apps/<slug>.html` — copy an existing app page. Update the head block (title,
-   description, absolute `og:url`), the hero (icon, eyebrow, tagline, price/iOS/version
+   description, absolute `og:url`), the hero (icon, eyebrow, tagline, price/iOS
    line, badge `id`), the features, the FAQ, and the support address.
 4. A card in `index.html`, linking to `apps/<slug>.html`. Keep exactly one `<a>` inside
    the card — see the note in `assets/site.css` under "App card".
