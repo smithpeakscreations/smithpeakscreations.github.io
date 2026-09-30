@@ -56,8 +56,10 @@ rename, move, or extension-strip these files:
 - `/privacy/365strong.html` &nbsp;&nbsp; `/apps/365strong.html`
 
 `/privacy/365strong.html` is hard-coded in the 365 Strong app under Profile &rarr; About
-&rarr; Privacy Policy. `/privacy/thesportpulse.html` and `/terms/thesportpulse.html` are
-both hard-coded in The Sport Pulse under Settings, in `SettingsView.swift`.
+&rarr; Privacy Policy. `/privacy/homecentered.html` is hard-coded in Home Centered the same
+way, in `AboutSupportModalView.swift`. `/privacy/thesportpulse.html` and
+`/terms/thesportpulse.html` are both hard-coded in The Sport Pulse under Settings, in
+`SettingsView.swift`.
 
 Apple surfaces the Support URL on every product page, and a missing or dead one is a
 rejection risk under Guideline 1.5. If one of these pages has to move, update App Store
