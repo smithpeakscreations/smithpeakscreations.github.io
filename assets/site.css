@@ -599,6 +599,19 @@ main {
     background: var(--accent-2-soft);
 }
 
+.tag-retired {
+    color: var(--muted);
+    background: var(--line-soft);
+}
+
+.app-retired {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0;
+}
+
 .app-card h3 {
     font-size: 17px;
     letter-spacing: -.2px;
