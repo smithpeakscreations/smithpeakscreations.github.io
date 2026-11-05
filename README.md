@@ -32,9 +32,13 @@ app, everywhere.
 | App | Slug | App Store ID | Price | Support address |
 |---|---|---|---|---|
 | ScoreKeep Pro | `scorekeeppro` | `6744083508` | Free | `smithpeakscreations+skprosupport@gmail.com` |
-| The Sport Pulse | `thesportpulse` | `6740729768` | $1.99 | `smithpeakscreations+spsupport@gmail.com` |
+| The Sport Pulse (**retired**) | `thesportpulse` | `6740729768` | $1.99 | `smithpeakscreations+spsupport@gmail.com` |
 | Home Centered | `homecentered` | `6797084066` | Free | `smithpeakscreations+hcsupport@gmail.com` |
-| 365 Strong | `365strong` | `6798088194` | Free | `smithpeakscreations+365strongsupport@gmail.com` |
+| 365 Strong (**retired**) | `365strong` | `6798088194` | Free | `smithpeakscreations+365strongsupport@gmail.com` |
+
+**Retired apps** (removed from the App Store, November 2026) keep their pages: the shipped
+binaries still link to the privacy and terms URLs. Their app pages show a "no longer
+available" notice instead of the badge, are `noindex`, and are dropped from the sitemap.
 
 Store links use the short canonical form `https://apps.apple.com/app/id<ID>` with no
 country segment, so they localise to the visitor's storefront.
